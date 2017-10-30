@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_shots"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/white"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:stateListAnimator="@drawable/sel_lift_on_touch"
+    tools:targetApi="lollipop">
+
+    <de.carey.desigggn.widget.AspectRatioLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        app:arl_heightRatio="3"
+        app:arl_widthRatio="4">
+
+        <ImageView
+            android:id="@+id/iv_item_shot_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription"/>
+
+        <ImageView
+            android:id="@+id/iv_item_shot_gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="4dp"
+            android:background="@drawable/ic_gif_small"
+            tools:ignore="ContentDescription"/>
+    </de.carey.desigggn.widget.AspectRatioLayout>
+</android.support.v7.widget.CardView>
