@@ -33,6 +33,7 @@
             android:layout_gravity="end"
             android:layout_margin="4dp"
             android:background="@drawable/ic_gif_small"
+            android:visibility="gone"
             tools:ignore="ContentDescription"/>
     </de.carey.desigggn.widget.AspectRatioLayout>
 </android.support.v7.widget.CardView>

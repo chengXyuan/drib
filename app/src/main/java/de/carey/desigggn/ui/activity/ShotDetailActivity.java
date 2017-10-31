@@ -27,13 +27,13 @@ public class ShotDetailActivity extends BaseMVPActivity<ShotDetailPresenter, Act
 
     @Override
     protected void initStatusBar() {
-        StatusBarUtil.setTranslucentForCoordinatorLayout(this, 0);
+        StatusBarUtil.setTranslucentForCoordinatorLayout(this,0);
     }
 
     @Override
     protected void initData(Bundle savedInstanceState) {
         ShotEntity shot = (ShotEntity) getIntent().getSerializableExtra(EXTRA_SHOT_ENTITY);
-        ImageLoader.loadShot(this, shot, mViewBinding.ivShotView);
+        ImageLoader.loadShot(shot, mViewBinding.ivShotView);
         mViewBinding.setShot(shot);
         mPresenter.getComments(shot.getCommentsUrl());
     }

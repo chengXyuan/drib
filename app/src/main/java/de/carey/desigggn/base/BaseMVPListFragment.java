@@ -35,12 +35,12 @@ public abstract class BaseMVPListFragment<P extends BasePresenter, B extends Vie
 
         /* 没有数据 */
         mEmptyView = inflater.inflate(R.layout.layout_empty_view, (ViewGroup) recyclerView.getParent(), false);
-        TextView tvEmptyMsg = mEmptyView.findViewById(R.id.tv_empty_view_msg);
+        TextView tvEmptyMsg = (TextView) mEmptyView.findViewById(R.id.tv_empty_view_msg);
         tvEmptyMsg.setText("暂无数据");
 
         /* 加载失败 */
         mErrorView = inflater.inflate(R.layout.layout_error_view, (ViewGroup) recyclerView.getParent(), false);
-        mTvErrorMsg = mErrorView.findViewById(R.id.tv_error_view_msg);
+        mTvErrorMsg = (TextView) mErrorView.findViewById(R.id.tv_error_view_msg);
         mErrorView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
