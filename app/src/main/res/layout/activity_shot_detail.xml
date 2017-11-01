@@ -76,11 +76,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:divider="@drawable/shape_divider_horizontal"
                 android:orientation="vertical"
                 android:paddingEnd="16sp"
-                android:paddingStart="16dp"
-                android:showDividers="middle">
+                android:paddingStart="16dp">
 
                 <LinearLayout
                     android:id="@+id/ll_counts_bar"
@@ -88,8 +86,8 @@
                     android:layout_height="wrap_content"
                     android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp">
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp">
 
                     <FrameLayout
                         android:layout_width="0dp"
@@ -101,8 +99,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:drawablePadding="4dp"
-                            android:drawableStart="@drawable/ic_favorite_black_20dp"
-                            android:drawableTint="@color/text_grey"
+                            android:drawableStart="@drawable/ic_favorite_gray_20dp"
                             android:gravity="center"
                             android:text="@{String.valueOf(shot.likesCount)}"
                             android:textColor="@color/text_grey"
@@ -120,8 +117,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:drawablePadding="4dp"
-                            android:drawableStart="@drawable/ic_visibility_black_20dp"
-                            android:drawableTint="@color/text_grey"
+                            android:drawableStart="@drawable/ic_visibility_gray_20dp"
                             android:gravity="center"
                             android:text="@{String.valueOf(shot.viewsCount)}"
                             android:textSize="16sp"
@@ -138,8 +134,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:drawablePadding="4dp"
-                            android:drawableStart="@drawable/ic_comment_black_20dp"
-                            android:drawableTint="@color/text_grey"
+                            android:drawableStart="@drawable/ic_star_gray_20dp"
                             android:gravity="center"
                             android:text="@{String.valueOf(shot.bucketsCount)}"
                             android:textSize="16sp"
@@ -156,14 +151,19 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:drawablePadding="4dp"
-                            android:drawableStart="@drawable/ic_comment_black_20dp"
-                            android:drawableTint="@color/text_grey"
+                            android:drawableStart="@drawable/ic_comment_gray_20dp"
                             android:gravity="center"
                             android:text="@{String.valueOf(shot.commentsCount)}"
                             android:textSize="16sp"
                             tools:text="10"/>
                     </FrameLayout>
                 </LinearLayout>
+
+                <View
+                    android:id="@+id/palette_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/divider"/>
 
                 <LinearLayout
                     android:id="@+id/ll_palette"
@@ -176,22 +176,41 @@
                     android:paddingTop="8dp"
                     android:showDividers="middle">
 
-                    <LinearLayout
-                        android:id="@+id/ll_left_colors"
+                    <FrameLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"/>
+                        android:layout_weight="1">
 
-                    <LinearLayout
-                        android:id="@+id/ll_right_colors"
+                        <LinearLayout
+                            android:id="@+id/ll_left_colors"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"/>
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:id="@+id/ll_right_colors"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical"/>
+
+                    </FrameLayout>
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/divider"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -211,6 +230,7 @@
                         android:id="@+id/ll_name_and_team"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:layout_toEndOf="@id/iv_user_avatar"
                         android:baselineAligned="true"
                         android:gravity="center_vertical"
@@ -219,13 +239,14 @@
                         <de.carey.desigggn.widget.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="create by "
+                            android:text="by "
                             android:textColor="@color/text_black"
                             android:textSize="12sp"/>
 
                         <de.carey.desigggn.widget.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:maxLines="1"
                             android:text="@{shot.user.name}"
                             android:textColor="@color/text_blue"
                             app:weight="semi_bold"
@@ -242,6 +263,7 @@
                         <de.carey.desigggn.widget.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:maxLines="1"
                             android:text="@{shot.team!=null?shot.team.name:null}"
                             android:textColor="@color/text_blue"
                             android:visibility="@{shot.team==null?View.GONE:View.VISIBLE}"
@@ -253,7 +275,8 @@
                         android:id="@+id/ll_create_at"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/ll_name_and_team"
+                        android:layout_alignBottom="@id/iv_user_avatar"
+                        android:layout_marginBottom="8dp"
                         android:layout_toEndOf="@id/iv_user_avatar"
                         android:baselineAligned="true"
                         android:gravity="center_vertical"
@@ -262,45 +285,96 @@
                         <de.carey.desigggn.widget.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="create at "
+                            android:text="in "
+                            android:textColor="@color/text_black"
+                            android:textSize="12sp"
+                            android:visibility="@{shot.user.location==null?View.GONE:View.VISIBLE}"/>
+
+                        <de.carey.desigggn.widget.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:maxLines="1"
+                            android:text="@{shot.user.location}"
+                            android:textColor="@color/text_black"
+                            android:visibility="@{shot.user.location==null?View.GONE:View.VISIBLE}"
+                            tools:text="Los"/>
+
+                        <de.carey.desigggn.widget.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="on "
                             android:textColor="@color/text_black"
                             android:textSize="12sp"/>
 
                         <de.carey.desigggn.widget.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{shot.createdAt}"
+                            android:maxLines="1"
+                            android:text="@{DateFormat.getDateInstance().format(shot.createdAt)}"
                             android:textColor="@color/text_grey"
                             app:weight="semi_bold"
                             tools:text="Sep 12, 2017"/>
                     </LinearLayout>
+                </RelativeLayout>
 
-                    <LinearLayout
-                        android:id="@+id/ll_update_at"
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/divider"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
+
+                    <de.carey.desigggn.widget.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/ll_create_at"
-                        android:layout_toEndOf="@id/iv_user_avatar"
-                        android:baselineAligned="true"
-                        android:gravity="center_vertical"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        app:weight="semi_bold"
+                        android:text="@{shot.commentsCount+` Responses`}"
+                        tools:text="104 Responses"/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|end"
                         android:orientation="horizontal">
 
-                        <de.carey.desigggn.widget.FontTextView
+                        <RadioButton
+                            android:id="@+id/rb_oldest"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="update at "
-                            android:textColor="@color/text_black"
-                            android:textSize="12sp"/>
+                            android:button="@null"
+                            android:checked="true"
+                            android:textColor="@color/grey_checked_primary"
+                            android:textSize="12sp"
+                            android:text="oldest"/>
 
-                        <de.carey.desigggn.widget.FontTextView
+                        <RadioButton
+                            android:id="@+id/rb_newest"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{shot.updatedAt}"
-                            android:textColor="@color/text_grey"
-                            app:weight="semi_bold"
-                            tools:text="Oct 25, 2017"/>
-                    </LinearLayout>
-                </RelativeLayout>
+                            android:layout_marginStart="8dp"
+                            android:button="@null"
+                            android:textColor="@color/grey_checked_primary"
+                            android:textSize="12sp"
+                            android:text="newest"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_liked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:button="@null"
+                            android:textColor="@color/grey_checked_primary"
+                            android:textSize="12sp"
+                            android:text="liked"/>
+                    </RadioGroup>
+                </FrameLayout>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view"
@@ -309,6 +383,5 @@
                     android:nestedScrollingEnabled="false"/>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
-
     </android.support.design.widget.CoordinatorLayout>
 </layout>

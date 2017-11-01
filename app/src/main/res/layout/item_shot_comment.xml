@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/img_default_avatar"/>
+
+    <de.carey.desigggn.widget.FontTextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_avatar"
+        android:maxLines="1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:weight="semi_bold"
+        tools:text="Dragos Axenti"/>
+
+    <TextView
+        android:id="@+id/tv_comment_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/tv_user_name"
+        android:layout_below="@id/tv_user_name"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/text_black"
+        tools:text="So nice... Very good teamwork! Congrats!"/>
+
+    <de.carey.desigggn.widget.FontTextView
+        android:id="@+id/tv_comment_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/tv_user_name"
+        android:layout_below="@id/tv_comment_body"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/text_grey"
+        tools:text="13 days ago"/>
+
+    <de.carey.desigggn.widget.FontTextView
+        android:id="@+id/tv_comment_like_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_alignBaseline="@id/tv_comment_time"
+        android:layout_alignParentEnd="true"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:drawableStart="@drawable/ic_favorite_gray_16dp"
+        android:textColor="@color/text_grey"
+        tools:text="13"/>
+
+</RelativeLayout>

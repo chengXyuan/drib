@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_view"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="12dp"
+        tools:src="@color/colorAccent"/>
+
+    <de.carey.desigggn.widget.FontTextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:weight="light"
+        tools:text="#420420"/>
+
+</merge>
